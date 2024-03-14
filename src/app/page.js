@@ -157,7 +157,9 @@ export default function Home() {
                       className="h-full w-full rounded-md"
                       sizes="100%"
                     />
-                    <p className="text-white text-lg mt-2">{company.title}</p>
+                    <p className="text-white text-lg mt-2">
+                      {company.id + ". " + company.title}
+                    </p>
                     <p className="text-gray-400 text-sm">{company.sub_title}</p>
                   </a>
                 </div>
