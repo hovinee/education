@@ -113,61 +113,69 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full h-screen bg-zinc-800 scroll-auto">
-      <div className="w-[1140px] px-[40px] mx-auto pt-20">
-        <Modal isOpen={modalOpen} onClose={handleClose} />
-        <h1 className="text-center text-5xl mb-12 text-white font-mono">
-          교육기부 메타버스 체험관
-        </h1>
-        <section>
-          <ul className="grid grid-cols-4 gap-2">
-            {EDUS.map((edu) => (
-              <li key={edu.id}>
-                <div className="hover:opacity-80">
-                  <a href={edu.path} target="_blank">
-                    <Image
-                      src={edu.imageUrl}
-                      alt={edu.id}
-                      width={0}
-                      height={0}
-                      className="h-full w-full rounded-md"
-                      sizes="100%"
-                    />
+    <>
+      <Modal isOpen={modalOpen} onClose={handleClose} />
+      <main className="w-full py-24 bg-zinc-800 scroll-auto">
+        <div className="w-[1140px] px-[40px] mx-auto">
+          <header className="mb-12">
+            <h1 className="text-5xl text-center text-white font-roboto font-bold">
+              교육기부 메타버스 체험관 구축 및 운영 지원
+            </h1>
+            <div className="flex justify-end text-gray-200 flex-col items-end mt-4">
+              <p>발주기관: 한국창의재단</p>
+              <p>수행기관: 듀코젠</p>
+            </div>
+          </header>
+          <section>
+            <ul className="grid grid-cols-4 gap-2">
+              {EDUS.map((edu) => (
+                <li key={edu.id}>
+                  <div className="hover:opacity-80">
+                    <a href={edu.path} target="_blank">
+                      <Image
+                        src={edu.imageUrl}
+                        alt={edu.id}
+                        width={0}
+                        height={0}
+                        className="h-full w-full rounded-md"
+                        sizes="100%"
+                      />
 
-                    <p className="text-white text-lg mt-2">{edu.title}</p>
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section>
-          <ul className="grid grid-cols-4 mt-20 gap-2">
-            {COMPANIES.map((company) => (
-              <li key={company.id} onClick={() => handleOpen(company.id)}>
-                <div className="hover:opacity-80">
-                  <a
-                    href={company.path}
-                    target={company.id === 3 ? "_self" : "_blank"}
-                  >
-                    <Image
-                      src={company.imageUrl}
-                      width={0}
-                      height={0}
-                      className="h-full w-full rounded-md"
-                      sizes="100%"
-                    />
-                    <p className="text-white text-lg mt-2">
-                      {company.id + ". " + company.title}
-                    </p>
-                    <p className="text-gray-400 text-sm">{company.sub_title}</p>
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </main>
+                      <p className="text-white text-lg mt-2">{edu.title}</p>
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <section>
+            <ul className="grid grid-cols-4 mt-20 gap-2">
+              {COMPANIES.map((company) => (
+                <li key={company.id} onClick={() => handleOpen(company.id)}>
+                  <div className="hover:opacity-80">
+                    <a
+                      href={company.path}
+                      target={company.id === 3 ? "_self" : "_blank"}
+                    >
+                      <Image
+                        src={company.imageUrl}
+                        width={0}
+                        height={0}
+                        className="h-full w-full rounded-md"
+                        sizes="100%"
+                      />
+                      <p className="text-white text-lg mt-2">
+                        {company.id + ". " + company.sub_title}
+                      </p>
+                      <p className="text-gray-400 text-sm">{company.title}</p>
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </main>
+    </>
   );
 }
