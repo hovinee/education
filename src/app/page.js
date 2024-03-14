@@ -1,112 +1,170 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
-export default function Home() {
+const EDUS = [
+  {
+    id: 1,
+    title: "교육기부 홈페이지",
+    path: "https://www.teachforkorea.go.kr/home/kor/contents.do?menuPos=66",
+    imageUrl: "/images/edu/1.png",
+  },
+  {
+    id: 2,
+    title: "교육기부 메타버스 타운",
+    path: "https://zep.us/play/25KkNv",
+    imageUrl: "/images/edu/2.png",
+  },
+];
+
+const COMPANIES = [
+  {
+    id: 1,
+    title: "KAI 한국항공우주산업",
+    sub_title: "에비에이션캠프",
+    path: "https://www.spatial.io/s/KAI-6597529d96ef31be78253405?share=5974653995449762303",
+    imageUrl: "/images/company/6.png",
+  },
+  {
+    id: 2,
+    title: "공항철도주식회사",
+    sub_title: "메타아렉스",
+    path: "https://www.spatial.io/s/AREX-65debe3629783b1b2db83da8?share=7767288393538263499",
+    imageUrl: "/images/company/5.png",
+  },
+  {
+    id: 3,
+    title: "굿네이버스",
+    sub_title: "콜린빌리지",
+    path: "#",
+    imageUrl: "/images/company/4.png",
+  },
+  {
+    id: 4,
+    title: "CJ올리브네트웍스",
+    sub_title: "SW창의캠프 팩토리원",
+    path: "https://www.spatial.io/s/CJ-65e8524f0f41579b6361db4b?share=408478583864270086",
+    imageUrl: "/images/company/2.png",
+  },
+  {
+    id: 5,
+    title: "포스코1%나눔재단",
+    sub_title: "그리닛포스",
+    path: "https://www.spatial.io/s/Green-it-POS-65e825c0fe90cc43f4ba2170?share=679995450062589974",
+    imageUrl: "/images/company/3.png",
+  },
+  {
+    id: 6,
+    title: "인지의 전당",
+    sub_title: "스컬섬 탈출기",
+    path: "https://pathfinder-bice-eta.vercel.app/healing/holland",
+    imageUrl: "/images/company/1.png",
+  },
+  {
+    id: 7,
+    title: "한국산림복지진흥원",
+    sub_title: "포로롱포이",
+    path: "https://www.spatial.io/s/Sanlimbokji-655c3b706505265d771642ec?share=830523424830655443",
+    imageUrl: "/images/company/7.png",
+  },
+];
+
+const Modal = ({ isOpen, onClose }) => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+    <div
+      className={`z-10 fixed inset-0 flex items-center justify-center ${
+        isOpen ? "" : "hidden"
+      }`}
+    >
+      <div className="fixed inset-0 bg-gray-900 opacity-75" onClick={onClose} />
+      <div className="relative bg-white p-8 rounded-lg shadow-lg">
+        <span
+          className="absolute top-0 right-0 p-3 cursor-pointer"
+          onClick={onClose}
+        >
+          &#10006;
+        </span>
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src="/images/company/qr_code.png"
+          alt="qr_code"
+          width={0}
+          height={0}
+          className="h-full w-full rounded-md"
+          sizes="100%"
         />
       </div>
+    </div>
+  );
+};
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+  const handleOpen = (id) => {
+    if (id === 3) {
+      setModalOpen(true);
+    }
+  };
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+  const handleClose = () => {
+    setModalOpen(false);
+  };
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+  return (
+    <main className="w-full h-screen bg-zinc-800 scroll-auto">
+      <div className="w-[1140px] px-[40px] mx-auto pt-20">
+        <Modal isOpen={modalOpen} onClose={handleClose} />
+        <h1 className="text-center text-5xl mb-12 text-white font-mono">
+          교육기부 메타버스 체험관
+        </h1>
+        <section>
+          <ul className="grid grid-cols-4 gap-2">
+            {EDUS.map((edu) => (
+              <li key={edu.id}>
+                <div className="hover:opacity-80">
+                  <a href={edu.path} target="_blank">
+                    <Image
+                      src={edu.imageUrl}
+                      alt={edu.id}
+                      width={0}
+                      height={0}
+                      className="h-full w-full rounded-md"
+                      sizes="100%"
+                    />
+
+                    <p className="text-white text-lg mt-2">{edu.title}</p>
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <ul className="grid grid-cols-4 mt-20 gap-2">
+            {COMPANIES.map((company) => (
+              <li key={company.id} onClick={() => handleOpen(company.id)}>
+                <div className="hover:opacity-80">
+                  <a
+                    href={company.path}
+                    target={company.id === 3 ? "_self" : "_blank"}
+                  >
+                    <Image
+                      src={company.imageUrl}
+                      width={0}
+                      height={0}
+                      className="h-full w-full rounded-md"
+                      sizes="100%"
+                    />
+                    <p className="text-white text-lg mt-2">{company.title}</p>
+                    <p className="text-gray-400 text-sm">{company.sub_title}</p>
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </main>
   );
