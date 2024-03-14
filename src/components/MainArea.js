@@ -43,7 +43,7 @@ export default function MainArea({ data }) {
   const handleClose = () => {
     setModalOpen(false);
   };
-
+  console.log(data.companys[0].tags[0]);
   return (
     <>
       <Modal isOpen={modalOpen} onClose={handleClose} />
@@ -99,7 +99,12 @@ export default function MainArea({ data }) {
                       <p className="text-white text-lg mt-2">
                         {company.id + ". " + company.sub_title}
                       </p>
-                      <p className="text-gray-400 text-sm">{company.title}</p>
+                      <p className="text-gray-300 text-sm">{company.title}</p>
+                      <p className="text-gray-300 text-xs flex gap-1">
+                        {company.tags.map((tag) => (
+                          <span>{"#" + tag}</span>
+                        ))}
+                      </p>
                     </a>
                   </div>
                 </li>

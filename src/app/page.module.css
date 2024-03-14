@@ -1,6 +1,7 @@
 .loading {
   text-align: center;
   animation: loading 1.2s ease-in-out infinite;
+  color: azure;
 }
 
 @keyframes loading {

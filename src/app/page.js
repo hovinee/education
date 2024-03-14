@@ -3,12 +3,15 @@ import { getData } from "@/libs/data";
 import { Suspense } from "react";
 import classes from "./page.module.css";
 
-const MainPage = () => {
-  const eduData = getData();
+async function Main() {
+  const eduData = await getData();
+  return <MainArea data={eduData} />;
+}
 
+const MainPage = () => {
   return (
     <Suspense fallback={<p className={classes.loading}>Loading..</p>}>
-      <MainArea data={eduData} />
+      <Main />
     </Suspense>
   );
 };

@@ -19,49 +19,56 @@
       "title": "KAI 한국항공우주산업",
       "sub_title": "에비에이션캠프",
       "path": "https://www.spatial.io/s/KAI-6597529d96ef31be78253405?share=5974653995449762303",
-      "imageUrl": "/images/company/6.png"
+      "imageUrl": "/images/company/6.png",
+      "tags": ["과학기술", "인재양성", "항공기"]
     },
     {
       "id": 2,
       "title": "공항철도주식회사",
       "sub_title": "메타아렉스",
       "path": "https://www.spatial.io/s/AREX-65debe3629783b1b2db83da8?share=7767288393538263499",
-      "imageUrl": "/images/company/5.png"
+      "imageUrl": "/images/company/5.png",
+      "tags": ["직통열차", "기관사"]
     },
     {
       "id": 3,
       "title": "굿네이버스",
       "sub_title": "콜린빌리지",
       "path": "#",
-      "imageUrl": "/images/company/4.png"
+      "imageUrl": "/images/company/4.png",
+      "tags": ["세계 이웃", "세계시민", "기후 위기"]
     },
     {
       "id": 4,
       "title": "CJ올리브네트웍스",
       "sub_title": "SW창의캠프 팩토리원",
       "path": "https://www.spatial.io/s/CJ-65e8524f0f41579b6361db4b?share=408478583864270086",
-      "imageUrl": "/images/company/2.png"
+      "imageUrl": "/images/company/2.png",
+      "tags": ["블록코딩", "스마트팩토리", "미래산업"]
     },
     {
       "id": 5,
       "title": "포스코1%나눔재단",
       "sub_title": "그리닛포스",
       "path": "https://www.spatial.io/s/Green-it-POS-65e825c0fe90cc43f4ba2170?share=679995450062589974",
-      "imageUrl": "/images/company/3.png"
+      "imageUrl": "/images/company/3.png",
+      "tags": ["그린수소", "수소에너지", "지구온난화"]
     },
     {
       "id": 6,
       "title": "인지의 전당",
       "sub_title": "스컬섬 탈출기",
       "path": "https://pathfinder-bice-eta.vercel.app/healing/holland",
-      "imageUrl": "/images/company/1.png"
+      "imageUrl": "/images/company/1.png",
+      "tags": ["모험유형", "워크넷", "PBL"]
     },
     {
       "id": 7,
       "title": "한국산림복지진흥원",
       "sub_title": "포로롱포이",
       "path": "https://www.spatial.io/s/Sanlimbokji-655c3b706505265d771642ec?share=830523424830655443",
-      "imageUrl": "/images/company/7.png"
+      "imageUrl": "/images/company/7.png",
+      "tags": ["지구온난화", "탄소중립", "숲가꾸기"]
     }
   ]
 }
