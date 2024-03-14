@@ -101,8 +101,8 @@ export default function MainArea({ data }) {
                       </p>
                       <p className="text-gray-300 text-sm">{company.title}</p>
                       <p className="text-gray-300 text-xs flex gap-1">
-                        {company.tags.map((tag) => (
-                          <span>{"#" + tag}</span>
+                        {company.tags.map((tag, index) => (
+                          <span key={index}>{"#" + tag}</span>
                         ))}
                       </p>
                     </a>
