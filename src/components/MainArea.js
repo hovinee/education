@@ -91,6 +91,7 @@ export default function MainArea({ data }) {
                     >
                       <Image
                         src={company.imageUrl}
+                        alt={company.id}
                         width={0}
                         height={0}
                         className="h-full w-full rounded-md"
