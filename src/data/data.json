@@ -56,14 +56,6 @@
     },
     {
       "id": 6,
-      "title": "인지의 전당",
-      "sub_title": "스컬섬 탈출기",
-      "path": "https://pathfinder-bice-eta.vercel.app/healing/holland",
-      "imageUrl": "/images/company/1.png",
-      "tags": ["모험유형", "워크넷", "PBL"]
-    },
-    {
-      "id": 7,
       "title": "한국산림복지진흥원",
       "sub_title": "포로롱포이",
       "path": "https://www.spatial.io/s/Sanlimbokji-655c3b706505265d771642ec?share=830523424830655443",
